@@ -3,10 +3,11 @@ import {
   useSelector as rawUseSelector,
   TypedUseSelectorHook,
 } from 'react-redux';
+import { questionSlice } from 'store/question/slice';
 
 export const store = configureStore({
   reducer: {
-    //question: questionSlice.reducer,
+    question: questionSlice.reducer,
   },
 });
 
