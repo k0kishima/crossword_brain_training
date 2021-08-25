@@ -30,13 +30,15 @@ export const CrosswordTable: React.FC<Props> = ({ cells }: Props) => {
   return (
     <Styled>
       <table>
-        {cells.map((row) => (
-          <tr key={i++}>
-            {row.map((cell) => (
-              <td key={j++} className={cell ? 'filled' : ''}></td>
-            ))}
-          </tr>
-        ))}
+        <tbody>
+          {cells.map((row) => (
+            <tr key={i++}>
+              {row.map((cell) => (
+                <td key={j++} className={cell ? 'filled' : ''}></td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
       </table>
     </Styled>
   );

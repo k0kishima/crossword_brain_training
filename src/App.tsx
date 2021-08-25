@@ -1,10 +1,10 @@
 import React from 'react';
-import { QuestionContainer } from 'containers/QuestionContainer';
+import { QuestionPage } from 'components/pages/QuestionPage';
 
 function App() {
   return (
     <>
-      <QuestionContainer />
+      <QuestionPage />
     </>
   );
 }
