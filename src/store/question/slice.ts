@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// TODO: 設定用のsliceで保持して一元的に管理したい
 const TABLE_SIZE = 5;
+
 const createRandomCells = (tableSize: number = TABLE_SIZE): boolean[][] => {
   return Array(tableSize)
     .fill(Array(tableSize).fill(true))
