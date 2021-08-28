@@ -29,17 +29,16 @@ export const CrosswordTable: React.FC<Props> = ({
     }
   `;
 
-  let i = 0;
-  let j = 0;
   return (
     <Styled>
       <table>
         <tbody>
-          {cells.map((row) => (
-            <tr key={i++}>
-              {row.map((cell) => (
+          {cells.map((row, i) => (
+            <tr key={i}>
+              {row.map((cell, j) => (
                 <td
-                  key={j++}
+                  key={j}
+                  data-index={`${i}-${j}`}
                   className={cell ? 'filled' : ''}
                   onClick={handleClick}
                 ></td>
