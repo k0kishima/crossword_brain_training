@@ -6,7 +6,8 @@ import { PassButtonContainer } from './PassButton';
 
 export const QuestionPage: React.FC = () => {
   const Styled = styled.div`
-    button {
+    button,
+    a {
       margin: 10px 30px 30px 30px;
     }
   `;
@@ -16,7 +17,7 @@ export const QuestionPage: React.FC = () => {
       <QuestionContainer />
 
       <Box textAlign="center">
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="primary" href="./answer">
           Try this
         </Button>
         <PassButtonContainer />
