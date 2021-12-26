@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Button, Box } from '@material-ui/core';
-import { QuestionContainer } from 'containers/QuestionContainer';
+import { QuestionContainer } from './Question/Container';
 import { PassButtonContainer } from './PassButton';
 
 export const QuestionPage: React.FC = () => {
