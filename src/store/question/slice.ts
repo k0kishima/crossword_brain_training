@@ -28,3 +28,4 @@ export const questionSlice = createSlice({
 });
 
 export const actions = questionSlice.actions;
+export default questionSlice.reducer;

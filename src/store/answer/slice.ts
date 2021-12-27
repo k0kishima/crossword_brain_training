@@ -29,7 +29,11 @@ export const answerSlice = createSlice({
       newCells[x][y] = !state.cells[x][y];
       state.cells = newCells;
     },
+    clear: (state) => {
+      state.cells = allBlankCells;
+    },
   },
 });
 
 export const actions = answerSlice.actions;
+export default answerSlice.reducer;

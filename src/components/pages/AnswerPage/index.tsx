@@ -1,6 +1,6 @@
 import React from 'react';
 import { TableContainer } from './Table';
-import { Button, Box } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import styled from 'styled-components';
 import { SubmitButtonContainer } from './SubmitButton/Container';
 
