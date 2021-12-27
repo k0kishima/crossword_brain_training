@@ -3,9 +3,13 @@ import styled from 'styled-components';
 
 type Props = {
   cells: boolean[][];
+  handleClick: (event: React.MouseEvent<HTMLTableCellElement>) => void;
 };
 
-export const CrosswordTable: React.FC<Props> = ({ cells }: Props) => {
+export const CrosswordTable: React.FC<Props> = ({
+  cells,
+  handleClick,
+}: Props) => {
   const BORDER_COLOR = 'black';
   const TABLE_VW = window.innerHeight / window.innerWidth > 1 ? 90 : 48;
   const CELL_VW = TABLE_VW / cells.length;
@@ -25,16 +29,19 @@ export const CrosswordTable: React.FC<Props> = ({ cells }: Props) => {
     }
   `;
 
-  let i = 0;
-  let j = 0;
   return (
     <Styled>
       <table>
         <tbody>
-          {cells.map((row) => (
-            <tr key={i++}>
-              {row.map((cell) => (
-                <td key={j++} className={cell ? 'filled' : ''}></td>
+          {cells.map((row, i) => (
+            <tr key={i}>
+              {row.map((cell, j) => (
+                <td
+                  key={j}
+                  data-index={`${i}-${j}`}
+                  className={cell ? 'filled' : ''}
+                  onClick={handleClick}
+                ></td>
               ))}
             </tr>
           ))}
