@@ -4,9 +4,12 @@ import {
   TypedUseSelectorHook,
 } from 'react-redux';
 import rootReducer from 'store/rootReducer';
+import { save, load } from 'redux-localstorage-simple';
 
 export const store = configureStore({
   reducer: rootReducer,
+  preloadedState: load(),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(save()),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
