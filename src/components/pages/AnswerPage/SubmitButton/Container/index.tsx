@@ -1,6 +1,4 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { questionStore } from 'store/question';
 import { SubmitButton } from '../Presentation';
 
 export const SubmitButtonContainer: React.FC = () => {
