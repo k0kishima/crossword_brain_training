@@ -1,16 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { store } from 'store';
-import { Button, Box } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import { CrosswordTable } from 'components/shared/CrosswordTable';
 import { NextButtonContainer } from './NextButton/Container';
 
 const { question, answer } = store.getState();
 
 export const CheckPage: React.VFC = () => {
-  const handleClick = (event: React.MouseEvent<HTMLTableCellElement>) => {
-    return;
-  };
+  const handleClick = () => null;
 
   const vw = window.innerHeight / window.innerWidth > 1 ? 90 : 48;
 
@@ -18,7 +16,7 @@ export const CheckPage: React.VFC = () => {
   const Styled = styled.div`
     .tables {
       width: ${vw}vw;
-      height: ${vw + 5}vw;
+      height: ${vw + 6}vw;
       margin: 20px auto;
       position: relative;
     }
@@ -41,6 +39,10 @@ export const CheckPage: React.VFC = () => {
 
     .next-button {
       margin: 20px;
+    }
+
+    a {
+      cursor: pointer;
     }
   `;
 
