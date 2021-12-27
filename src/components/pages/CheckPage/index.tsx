@@ -3,9 +3,8 @@ import styled from 'styled-components';
 import { store } from 'store';
 import { Button, Box } from '@material-ui/core';
 import { CrosswordTable } from 'components/shared/CrosswordTable';
+import { NextButtonContainer } from './NextButton/Container';
 
-// NOTE:
-// selecotor 使うと関数のトップレベルで宣言しているにもかかわらず `Invalid hook call` になるのでバイパス手段として `getState` を使用
 const { question, answer } = store.getState();
 
 export const CheckPage: React.VFC = () => {
@@ -59,9 +58,7 @@ export const CheckPage: React.VFC = () => {
       </Styled>
       <div className="next-button">
         <Box textAlign="center">
-          <Button variant="contained" href="./">
-            Next
-          </Button>
+          <NextButtonContainer />
         </Box>
       </div>
     </>
