@@ -13,7 +13,7 @@ export const TableContainer: React.VFC = () => {
   const dispatch = useDispatch();
 
   const handleClick = (event: React.MouseEvent<HTMLTableCellElement>) => {
-    const index: string = event.currentTarget.dataset.index!;
+    const index: string = event.currentTarget.dataset.index as string;
     const [x, y] = index.split('-').map((x_or_y_str) => {
       return Number(x_or_y_str);
     });

@@ -4,7 +4,7 @@ import { QuestionPage } from 'components/pages/QuestionPage';
 import { AnswerPage } from 'components/pages/AnswerPage';
 import { CheckPage } from 'components/pages/CheckPage';
 
-function App() {
+export const App: React.FC = () => {
   return (
     <>
       <BrowserRouter>
@@ -18,6 +18,6 @@ function App() {
       </BrowserRouter>
     </>
   );
-}
+};
 
 export default App;

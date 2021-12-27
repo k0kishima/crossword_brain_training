@@ -10,9 +10,7 @@ const selector = ({ question }: RootState) => ({
 export const QuestionContainer: React.VFC = () => {
   const { cells } = useSelector(selector);
 
-  const handleClick = (event: React.MouseEvent<HTMLTableCellElement>) => {
-    return;
-  };
+  const handleClick = () => null;
 
   return <CrosswordTable cells={cells} handleClick={handleClick} />;
 };
