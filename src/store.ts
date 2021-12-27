@@ -4,10 +4,12 @@ import {
   TypedUseSelectorHook,
 } from 'react-redux';
 import { questionSlice } from 'store/question/slice';
+import { answerSlice } from 'store/answer/slice';
 
 export const store = configureStore({
   reducer: {
     question: questionSlice.reducer,
+    answer: answerSlice.reducer,
   },
 });
 
