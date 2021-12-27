@@ -33,3 +33,4 @@ export const answerSlice = createSlice({
 });
 
 export const actions = answerSlice.actions;
+export default answerSlice.reducer;

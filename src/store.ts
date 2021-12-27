@@ -3,14 +3,10 @@ import {
   useSelector as rawUseSelector,
   TypedUseSelectorHook,
 } from 'react-redux';
-import { questionSlice } from 'store/question/slice';
-import { answerSlice } from 'store/answer/slice';
+import rootReducer from 'store/rootReducer';
 
 export const store = configureStore({
-  reducer: {
-    question: questionSlice.reducer,
-    answer: answerSlice.reducer,
-  },
+  reducer: rootReducer,
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
