@@ -10,33 +10,20 @@ const { question, answer } = store.getState();
 export const CheckPage: React.VFC = () => {
   const handleClick = () => null;
 
+  const vw = window.innerHeight / window.innerWidth > 1 ? 90 : 48;
+
   // TODO: 定義が汚くてとりあえず動けばいいというレベルなので書き直す
   const Styled = styled.div`
-    .box {
+    .tables {
+      width: ${vw}vw;
+      height: ${vw + 6}vw;
+      margin: 20px auto;
       position: relative;
-      width: 50%;
-      height: auto;
-      margin: 0px auto 55px;
-    }
-    .ratio-1_1:before {
-      content: '';
-      display: block;
-      padding-top: 100%; /* 1:1 */
-    }
-    .inner {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
     }
 
     .question {
       position: absolute;
-      left: 0;
-      right: 0;
       z-index: 0;
-      margin: auto;
       td.filled {
         background-color: red;
       }
@@ -44,20 +31,25 @@ export const CheckPage: React.VFC = () => {
 
     .answer {
       position: absolute;
-      left: 0;
-      right: 0;
       z-index: 1;
-      margin: auto;
       td.filled {
         background-color: green;
       }
     }
+
+    .next-button {
+      margin: 20px;
+    }
+
+    a {
+      cursor: pointer;
+    }
   `;
 
   return (
-    <Styled>
-      <div className="box ratio-1_1">
-        <div className="inner">
+    <>
+      <Styled>
+        <div className="tables">
           <div className="question">
             <CrosswordTable cells={question.cells} handleClick={handleClick} />
           </div>
@@ -65,11 +57,12 @@ export const CheckPage: React.VFC = () => {
             <CrosswordTable cells={answer.cells} handleClick={handleClick} />
           </div>
         </div>
+      </Styled>
+      <div className="next-button">
+        <Box textAlign="center">
+          <NextButtonContainer />
+        </Box>
       </div>
-
-      <Box textAlign="center">
-        <NextButtonContainer />
-      </Box>
-    </Styled>
+    </>
   );
 };
