@@ -2,67 +2,48 @@ import React from 'react';
 import styled from 'styled-components';
 import { store } from 'store';
 import { Box } from '@material-ui/core';
-import { CrosswordTable } from 'components/shared/CrosswordTable';
+import { ResultTable } from './ResultTable/Presentation';
 import { NextButtonContainer } from './NextButton/Container';
+import { CHECK_RESULT } from 'types';
 
 const { question, answer } = store.getState();
 
+const results = question.cells.map((questionCellRow, i) => {
+  return questionCellRow.map((questionCell, j) => {
+    const answerCell = answer.cells[i][j];
+
+    if (questionCell && answerCell) {
+      return CHECK_RESULT.CORRECT_FILLED;
+    }
+    if (!questionCell && !answerCell) {
+      return CHECK_RESULT.CORRECT_BLANK;
+    }
+    if (questionCell && !answerCell) {
+      return CHECK_RESULT.NOT_FILLED;
+    }
+    if (!questionCell && answerCell) {
+      return CHECK_RESULT.WRONG_FILLED;
+    }
+
+    return CHECK_RESULT.UNKNOWN;
+  });
+});
+
 export const CheckPage: React.VFC = () => {
-  const handleClick = () => null;
-
-  const vw = window.innerHeight / window.innerWidth > 1 ? 90 : 48;
-
-  // TODO: 定義が汚くてとりあえず動けばいいというレベルなので書き直す
   const Styled = styled.div`
-    .tables {
-      width: ${vw}vw;
-      height: ${vw + 6}vw;
-      margin: 20px auto;
-      position: relative;
-    }
-
-    .question {
-      position: absolute;
-      z-index: 0;
-      td.filled {
-        background-color: red;
-      }
-    }
-
-    .answer {
-      position: absolute;
-      z-index: 1;
-      td.filled {
-        background-color: green;
-      }
-    }
-
-    .next-button {
-      margin: 20px;
-    }
-
+    button,
     a {
+      margin: 10px 30px 30px 30px;
       cursor: pointer;
     }
   `;
 
   return (
-    <>
-      <Styled>
-        <div className="tables">
-          <div className="question">
-            <CrosswordTable cells={question.cells} handleClick={handleClick} />
-          </div>
-          <div className="answer">
-            <CrosswordTable cells={answer.cells} handleClick={handleClick} />
-          </div>
-        </div>
-      </Styled>
-      <div className="next-button">
-        <Box textAlign="center">
-          <NextButtonContainer />
-        </Box>
-      </div>
-    </>
+    <Styled>
+      <ResultTable results={results} />
+      <Box textAlign="center">
+        <NextButtonContainer />
+      </Box>
+    </Styled>
   );
 };
