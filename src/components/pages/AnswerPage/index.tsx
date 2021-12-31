@@ -9,7 +9,6 @@ export const AnswerPage: React.FC = () => {
     button,
     a {
       margin: 10px 30px 30px 30px;
-      cursor: pointer;
     }
   `;
 
