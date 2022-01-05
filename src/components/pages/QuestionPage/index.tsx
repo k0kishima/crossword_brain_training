@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Button, Box } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+
 import { QuestionContainer } from './Question/Container';
 import { PassButtonContainer } from './PassButton';
 
@@ -18,7 +20,12 @@ export const QuestionPage: React.FC = () => {
       <QuestionContainer />
 
       <Box textAlign="center">
-        <Button variant="contained" color="primary" href="./answer">
+        <Button
+          variant="contained"
+          color="primary"
+          component={Link}
+          to="./answer"
+        >
           Try this
         </Button>
         <PassButtonContainer />
