@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 type Props = {
   handleClick: () => void;
@@ -11,7 +12,8 @@ export const SubmitButton: React.FC<Props> = ({ handleClick }: Props) => {
       variant="contained"
       color="primary"
       onClick={handleClick}
-      href="check"
+      component={Link}
+      to="check"
     >
       Submit
     </Button>
